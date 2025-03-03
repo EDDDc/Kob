@@ -12,7 +12,7 @@ public class BotInfoController {
     public Map<String,String> getBotInfo(){
         Map<String,String> map = new HashMap<>();
         map.put("name","lf");
-        map.put("version","1.0.0");
+        map.put("rating","100");
         return map;
     }
 
