@@ -23,7 +23,7 @@
             jhj
           </a>
           <ul class="dropdown-menu">
-            <li><router-link class="dropdown-item" :a="{name: 'user_bot_index'}">我的Bot</router-link></li>
+            <li><router-link class="dropdown-item" :to="{name: 'user_bot_index'}">我的Bot</router-link></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">退出</a></li>
           </ul>
