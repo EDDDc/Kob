@@ -22,13 +22,13 @@ public class RegisterServiceImpl implements RegisterService {
     PasswordEncoder passwordEncoder;
 
     @Override
-    public Map<String, String> register(String username, String password, String confirmPassword) {
+    public Map<String, String> register(String username, String password, String confirmedPassword) {
         Map<String, String> map = new HashMap<String, String>();
         if (username == null) {
             map.put("error_message", "用户名不能为空");
             return map;
         }
-        if (password == null || confirmPassword == null) {
+        if (password == null || confirmedPassword == null) {
             map.put("error_message", "密码不能为空");
             return map;
         }
@@ -39,7 +39,7 @@ public class RegisterServiceImpl implements RegisterService {
             return map;
         }
 
-        if (password.length() == 0 || confirmPassword.length() == 0) {
+        if (password.length() == 0 || confirmedPassword.length() == 0) {
             map.put("error_message", "密码不能为空");
             return map;
         }
@@ -54,7 +54,7 @@ public class RegisterServiceImpl implements RegisterService {
             return map;
         }
 
-        if (!password.equals(confirmPassword)) {
+        if (!password.equals(confirmedPassword)) {
             map.put("error_message", "两次密码不一致");
             return map;
         }
