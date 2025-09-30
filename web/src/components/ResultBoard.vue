@@ -13,7 +13,7 @@
             Win
         </div>
         <div class="result-board-btn">
-            <button type="button" class="btn btn-warning btn-lg">
+            <button @click="restart" type="button" class="btn btn-warning btn-lg">
                 再来！
             </button>
 
@@ -22,7 +22,24 @@
 </template>
 
 <script>
+import { useStore } from 'vuex';
+export default{
+    setup() {
+        const store = useStore();
+        const restart = () => {
+            store.commit("updateStatus", "matching");
+            store.commit("updateLoser", "none");
+            store.commit("updateOpponent", {
+                username: "我的对手",
+                photo: "https://cdn.acwing.com/media/article/image/2022/08/09/1_1db2488f17-anonymous.png"
+            });
+        }
 
+        return {
+            restart
+        };
+    }
+}
 </script>
 
 <style>
