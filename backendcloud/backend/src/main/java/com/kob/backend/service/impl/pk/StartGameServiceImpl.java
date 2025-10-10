@@ -1,0 +1,16 @@
+package com.kob.backend.service.impl.pk;
+
+import com.kob.backend.consumer.WebSocketServer;
+import com.kob.backend.service.pk.StartGmaeService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class StartGameServiceImpl implements StartGmaeService {
+
+    @Override
+    public String startGmae(Integer aId, Integer bId) {
+        System.out.println("start game: " + aId + "   " + bId);
+        WebSocketServer.startGame(aId, bId);
+        return "start game success";
+    }
+}

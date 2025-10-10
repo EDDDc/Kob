@@ -17,6 +17,7 @@
     <!-- 子模块声明 -->
     <modules>
         <module>matchingsystem</module>
+        <module>backend</module>
     </modules>
 
     <!-- 统一属性 -->
@@ -46,6 +47,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
