@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 public class StartGameServiceImpl implements StartGmaeService {
 
     @Override
-    public String startGmae(Integer aId, Integer bId) {
+    public String startGmae(Integer aId, Integer aBotId, Integer bId, Integer bBotId) {
         System.out.println("start game: " + aId + "   " + bId);
-        WebSocketServer.startGame(aId, bId);
+        WebSocketServer.startGame(aId, aBotId, bId, bBotId);
         return "start game success";
     }
 }
