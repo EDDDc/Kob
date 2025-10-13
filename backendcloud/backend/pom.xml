@@ -50,6 +50,12 @@
             <artifactId>mybatis-plus-generator</artifactId>
             <version>3.5.12</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-jsqlparser -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-jsqlparser</artifactId>
+            <version>3.5.14</version>
+        </dependency>
         <!--  https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security  -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

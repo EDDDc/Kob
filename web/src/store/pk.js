@@ -43,7 +43,7 @@ export default {
     },
     updateLoser(state, loser) {
         state.loser = loser;
-    }
+    },
   },
   actions: {
   },
