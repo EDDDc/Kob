@@ -59,21 +59,30 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
-                // 启用 CORS
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/user/account/token/", "/api/user/account/register/", "/websocket/**").permitAll()
-                        .requestMatchers("/pk/start/game/", "/pk/receive/bot/move/").access((authentication, context) ->
-                                new AuthorizationDecision(hasIpAddress.matches(context.getRequest())))
-                        .anyRequest().authenticated());
+                        // ✅ 放行 OPTIONS 预检请求
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
-        // 把 JWT 过滤器插到 UsernamePasswordAuthenticationFilter 之前
+                        // ✅ 放行登录注册接口
+                        .requestMatchers("/api/user/account/**", "/websocket/**").permitAll()
+
+                        // ✅ 仅限本地调用的接口
+                        .requestMatchers("/pk/start/game/", "/pk/receive/bot/move/")
+                        .access((authentication, context) ->
+                                new AuthorizationDecision(hasIpAddress.matches(context.getRequest())))
+
+                        // 其他接口都需要登录
+                        .anyRequest().authenticated()
+                );
+
         http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
+
 
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
