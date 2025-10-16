@@ -1,14 +1,30 @@
 package com.kob.botrunningsystem.service.impl.utils;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Bot {
     Integer userId;
     String botCode;
     String input;
+
+    public Bot(Integer userId, String botCode, String input) {
+        this.userId = userId;
+        this.botCode = botCode;
+        this.input = input;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public String getBotCode() {
+        return botCode;
+    }
+
+    public String getInput() {
+        return input;
+    }
 }

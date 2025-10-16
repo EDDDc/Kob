@@ -48,4 +48,61 @@ public class Player {
         }
         return res.toString();
     }
+
+    public Player(Integer id, Integer botId, String botCode, Integer sx, Integer sy, List<Integer> steps) {
+        this.id = id;
+        this.botId = botId;
+        this.botCode = botCode;
+        this.sx = sx;
+        this.sy = sy;
+        this.steps = steps;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getBotId() {
+        return botId;
+    }
+
+    public void setBotId(Integer botId) {
+        this.botId = botId;
+    }
+
+    public String getBotCode() {
+        return botCode;
+    }
+
+    public void setBotCode(String botCode) {
+        this.botCode = botCode;
+    }
+
+    public Integer getSx() {
+        return sx;
+    }
+
+    public void setSx(Integer sx) {
+        this.sx = sx;
+    }
+
+    public Integer getSy() {
+        return sy;
+    }
+
+    public void setSy(Integer sy) {
+        this.sy = sy;
+    }
+
+    public List<Integer> getSteps() {
+        return steps;
+    }
+
+    public void setSteps(List<Integer> steps) {
+        this.steps = steps;
+    }
 }

@@ -1,7 +1,6 @@
 package com.kob.backend.service.impl.utils;
 
 import com.kob.backend.pojo.User;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,10 +11,13 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class UserDetailsImpl implements UserDetails {
 
     private User user;
+
+    public UserDetailsImpl(User user) {
+        this.user = user;
+    }
 
     @Override
     public boolean isEnabled() {
@@ -50,5 +52,13 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

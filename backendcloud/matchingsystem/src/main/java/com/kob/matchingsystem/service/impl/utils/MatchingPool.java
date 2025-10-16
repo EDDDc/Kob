@@ -25,7 +25,8 @@ public class MatchingPool extends Thread{
     public void addPlayer(Integer userId, Integer rating, Integer botId){
         lock.lock();
         try {
-            players.add(new Player(userId, rating, botId, 0));
+            Integer zero = 0;
+            players.add(new Player(userId, rating, botId, zero));
         } finally {
             lock.unlock();
         }
@@ -69,7 +70,7 @@ public class MatchingPool extends Thread{
     }
 
     private void matchPlayers() {   //尝试匹配所有玩家
-        System.out.println("match players: " + players.toString());
+
         boolean[] used = new boolean[players.size()];
         for (int i = 0; i < players.size(); i++) {
             if (used[i]) continue;

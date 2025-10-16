@@ -44,8 +44,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         // 允许前端的来源（Vue 默认是 localhost:8080 或 8081）
-        config.setAllowedOrigins(List.of("http://localhost:8080", "http://localhost:8081"));
-        // 允许携带 cookie 或 token
+        config.setAllowedOriginPatterns(List.of("*")); // 允许任意来源（或指定 AcWing 域名）        // 允许携带 cookie 或 token
         config.setAllowCredentials(true);
         // 允许的请求头和方法
         config.addAllowedHeader("*");
@@ -65,7 +64,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/user/account/token/", "/user/account/register/", "/websocket/**").permitAll()
+                        .requestMatchers("/api/user/account/token/", "/api/user/account/register/", "/websocket/**").permitAll()
                         .requestMatchers("/pk/start/game/", "/pk/receive/bot/move/").access((authentication, context) ->
                                 new AuthorizationDecision(hasIpAddress.matches(context.getRequest())))
                         .anyRequest().authenticated());

@@ -33,8 +33,8 @@ public class GetRecordListServiceImpl implements GetRecordListService {
         JSONObject resp = new JSONObject();
         List<JSONObject> items = new ArrayList<>();
         for (Record record : records) {
-            User userA = userMapper.selectById(record.getAId());
-            User userB = userMapper.selectById(record.getBId());
+            User userA = userMapper.selectById(record.getaId());
+            User userB = userMapper.selectById(record.getbId());
             JSONObject item = new JSONObject();
             item.put("a_photo", userA.getPhoto());
             item.put("a_username", userA.getUsername());

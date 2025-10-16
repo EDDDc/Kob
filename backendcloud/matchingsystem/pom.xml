@@ -16,6 +16,7 @@
     <artifactId>matchingsystem</artifactId>
     <name>matchingsystem</name>
     <description>匹配系统子模块</description>
+    <packaging>jar</packaging>
 
     <!-- 编译属性 -->
     <properties>
@@ -50,8 +51,8 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.38</version>
-            <scope>provided</scope>
+            <version>1.18.30</version>
+<!--            <scope>provided</scope>-->
         </dependency>
 
     </dependencies>
@@ -62,6 +63,18 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>4.0.0-M3</version>
+                <!--这里写上main方法所在类的路径-->
+                <configuration>
+                    <mainClass>com.kob.matchingsystem.MatchingSystemApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
