@@ -134,16 +134,16 @@ export default {
                     console.log(record);
                     store.commit("updateGame", {
                         map: stringTo2D(record.record.map),
-                        a_id: record.record.aid,
-                        a_sx: record.record.asx,
-                        a_sy: record.record.asy,
-                        b_id: record.record.bid,
-                        b_sx: record.record.bsx,
-                        b_sy: record.record.bsy,
+                        a_id: record.record.aId,
+                        a_sx: record.record.aSx,
+                        a_sy: record.record.aSy,
+                        b_id: record.record.bId,
+                        b_sx: record.record.bSx,    
+                        b_sy: record.record.bSy,
                     });
                     store.commit("updateSteps",{
-                        a_steps: record.record.asteps,
-                        b_steps: record.record.bsteps
+                        a_steps: record.record.aSteps,
+                        b_steps: record.record.bSteps
                     });
                     store.commit("updateRecordLoser", record.record.loser);
                     router.push({
